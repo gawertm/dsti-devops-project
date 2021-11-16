@@ -14,7 +14,7 @@ This is a mockup of the final interface:
 ![Mockup](image/mockup.JPG)
 
 ## The Classic Core Application
-![Core Architecture](image/local_architecture)
+![Core Architecture](image/local_architecture.JPG)
 - each of the components are containerized
 - Once the user visits the application in the browser, it will be going to an Nginx Webserver
 - Nginx will route between a react application with all the front-end assets and an Express Server that functions as an API e.g. when a user submits a value in the browser
