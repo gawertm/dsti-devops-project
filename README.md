@@ -8,7 +8,7 @@ In the Fibonacci Calculator, the user will enter an Index, and the calculator wi
 Also the interface will display the users last entered values.
 
 To Recall the fibonacci sequence, please see the following picture. A value is always the addition of the two previous values.
-![Fibonacci Sequence](image/fib_sequence.jpg)
+![Fibonacci Sequence](image/fib_sequence.JPG)
 
 This is a mockup of the final interface: 
 ![Mockup](image/mockup.JPG)
@@ -23,10 +23,10 @@ This is a mockup of the final interface:
 - The Calculated Values will be stored in a Redis Database (Key/Value Pairs)
 - The worker is a node.js process which looks for new values in Redis, claculates the value and puts it back to Redis
 See the full backend flow here:
-![Backend Architecture](image/backend_architecture.jpg)
+![Backend Architecture](image/backend_architecture.JPG)
 
 ## Kubernetes Architecture
-![Kubernetes Architecture](image/kubernetes_architecture.jpg)
+![Kubernetes Architecture](image/kubernetes_architecture.JPG)
 - using Kubernetes, I will not use the Nginx Routing instance, but instead rely on an Ingress Service that routes to the different ClusterIPs
 - I am using 5 different deployments with 1 to 3 Replicas and a ClusterIP added to the deployments (except the worker deployment as it doesnt need to be accessed)
 - For Postgres I am additionally using a Postgres PVC
