@@ -55,8 +55,8 @@ jobs:
     - uses: azure/k8s-deploy@v1
       with:
         manifests: |
-          manifests/deployment.yml
-          manifests/service.yml
+          multi-k8s/k8s/deployment.yml
+          multi-k8s/k8s
         images: |
           ${{ env.REGISTRY_NAME }}.azurecr.io/multi-client-k8s:${{ github.sha }}
           ${{ env.REGISTRY_NAME }}.azurecr.io/multi-server-k8s:${{ github.sha }}
