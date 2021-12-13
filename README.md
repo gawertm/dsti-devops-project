@@ -36,15 +36,15 @@ See the full backend flow here:
 ## Prod Deployment
 - for the Prod Deployment I am using GitHub Actions as a CI Tool
 - as the hosting platform, I am using the Microsoft Azure Kubernetes Serveice (AKS)
-- for the deployment, I use a workflow yaml where all the build steps are defined
+- for the deployment, I use a workflow.yml where all the build steps are defined
 - the containers will be hosted in a private Azure Container Registry (ACR) 
 
-### Kubernetes
+### Kubernetes Setup
 - ARM Template used as per documentation https://docs.microsoft.com/en-us/azure/aks/kubernetes-walkthrough-rm-template
 - Due to Quota Limit, only 1 node cluster was deployed of size Standard_D4s_v3
 
-### GitHub
-- created a Service Principal for GitHub with the following command: az ad sp create-for-rbac --name "GitHubSP" --role contributor --scopes /subscriptions/0bef94e0-e086-44d4-9dc7-be9a1cf2c728/resourceGroups/DSTI-DevOps-Project --sdk-auth
-- Service Principal added to Github Secrets for Access to Azure
-- created an Azure Container registry to host images
-- Also added ACR Username and Password of Service Principal as Github Secrets
+### GitHub Action
+- I created a Service Principal for GitHub in azure with the following command: az ad sp create-for-rbac --name "GitHubSP" --role contributor --scopes /subscriptions/0bef94e0-e086-44d4-9dc7-be9a1cf2c728/resourceGroups/DSTI-DevOps-Project --sdk-auth
+- The Service Principal was added to Github Secrets for Access to Azure
+- The SP has pull and push permissions for the ACR
+- Also, I added the Username and Password of ACR Service Principal as Github Secrets
