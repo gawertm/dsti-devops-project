@@ -70,6 +70,7 @@ jobs:
           ${{ env.REGISTRY_NAME }}.azurecr.io/multi-client-k8s:${{ github.sha }}
           ${{ env.REGISTRY_NAME }}.azurecr.io/multi-worker-k8s:${{ github.sha }}
           ${{ env.REGISTRY_NAME }}.azurecr.io/multi-server-k8s:${{ github.sha }}
+          ${{ env.REGISTRY_NAME }}.azurecr.io/postgres:latest
         imagepullsecrets: |
           ${{ env.SECRET }}
         namespace: ${{ env.NAMESPACE }}
