@@ -23,9 +23,9 @@ jobs:
     
     # Container build and push to a Azure Container Registry (ACR)
     - run: |
-        docker build -t ${{ env.REGISTRY_NAME }}.azurecr.io/multi-client-k8s:${{ github.sha }} -f ./../../multi-k8s/client/Dockerfile ./../multi-k8s/client
-        docker build -t ${{ env.REGISTRY_NAME }}.azurecr.io/multi-server-k8s:${{ github.sha }} -f ./../../multi-k8s/server/Dockerfile ./../../multi-k8s/server
-        docker build -t ${{ env.REGISTRY_NAME }}.azurecr.io/multi-worker-k8s:${{ github.sha }} -f ./../../multi-k8s/worker/Dockerfile ./../../multi-k8s/worker
+        docker build -t ${{ env.REGISTRY_NAME }}.azurecr.io/multi-client-k8s:${{ github.sha }} -f ./multi-k8s/client/Dockerfile ./multi-k8s/client
+        docker build -t ${{ env.REGISTRY_NAME }}.azurecr.io/multi-server-k8s:${{ github.sha }} -f ./multi-k8s/server/Dockerfile ./multi-k8s/server
+        docker build -t ${{ env.REGISTRY_NAME }}.azurecr.io/multi-worker-k8s:${{ github.sha }} -f ./multi-k8s/worker/Dockerfile ./multi-k8s/worker
 
         docker push ${{ env.REGISTRY_NAME }}.azurecr.io/multi-client-k8s:${{ github.sha }}
         docker push ${{ env.REGISTRY_NAME }}.azurecr.io/multi-server-k8s:${{ github.sha }}
