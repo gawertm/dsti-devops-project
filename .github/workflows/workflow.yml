@@ -40,7 +40,7 @@ jobs:
     
     # Create namespace if doesn't exist
     - run: |
-        kubectl create namespace ${{ env.NAMESPACE }} --dry-run=server -o json | kubectl apply -f multi-k8s/k8s
+        kubectl create namespace ${{ env.NAMESPACE }}
     
     # Create image pull secret for ACR
     - uses: azure/k8s-create-secret@v1
