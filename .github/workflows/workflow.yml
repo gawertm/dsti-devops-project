@@ -59,5 +59,12 @@ jobs:
             multi-k8s/k8s/client-deployment.yaml
             multi-k8s/k8s/database-persistent-volume-claim.yaml
             multi-k8s/k8s/ingress-service.yaml
+            multi-k8s/k8s/postgres-cluster-ip-service.yaml
+            multi-k8s/k8s/postgres-deployment.yaml
+            multi-k8s/k8s/redis-cluster-ip-service.yaml
+            multi-k8s/k8s/redis-deployment.yaml
+            multi-k8s/k8s/server-cluster-ip-service.yaml
+            multi-k8s/k8s/server-deployment.yaml
+            multi-k8s/k8s/worker-deployment.yaml
         imagepullsecrets: ${{ env.SECRET }}
         namespace: ${{ env.NAMESPACE }}

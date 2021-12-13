@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: server
-          image: cygnetops/multi-server-pgfix-5-11
+          image: dstidevops.azurecr.io/multi-server-k8s
           ports:
             - containerPort: 5000
           env:
