@@ -52,7 +52,7 @@ jobs:
         arguments: --force true  
         
     # Deploy app to AKS
-    - uses: azure/k8s-deploy@v1
+    - uses: azure/k8s-deploy@v1.4
       with:
         manifests: |
             multi-k8s/k8s/client-cluster-ip-service.yaml
@@ -66,5 +66,4 @@ jobs:
             multi-k8s/k8s/server-cluster-ip-service.yaml
             multi-k8s/k8s/server-deployment.yaml
             multi-k8s/k8s/worker-deployment.yaml
-        imagepullsecrets: ${{ env.SECRET }}
         namespace: ${{ env.NAMESPACE }}
