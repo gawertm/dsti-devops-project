@@ -1,8 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\complex\\nginx"
+    "\\multi-k8s"
   ],
-  "SelectedNode": "\\README.md",
+  "SelectedNode": "\\multi-k8s\\client",
   "PreviewInSolutionExplorer": false
 }
