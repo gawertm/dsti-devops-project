@@ -15,8 +15,6 @@ spec:
       containers:
         - name: worker
           image: dstidevops.azurecr.io/multi-worker-k8s
-          imagePullSecrets:
-          - name: acr-secret
           env:
             - name: REDIS_HOST
               value: redis-cluster-ip-service

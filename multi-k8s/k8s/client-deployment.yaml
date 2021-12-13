@@ -15,7 +15,5 @@ spec:
       containers:
         - name: client
           image: dstidevops.azurecr.io/multi-client-k8s
-          imagePullSecrets:
-          - name: acr-secret
           ports:
             - containerPort: 3000

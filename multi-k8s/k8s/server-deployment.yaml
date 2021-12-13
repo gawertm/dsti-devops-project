@@ -15,8 +15,6 @@ spec:
       containers:
         - name: server
           image: dstidevops.azurecr.io/multi-server-k8s
-          imagePullSecrets:
-          - name: acr-secret
           ports:
             - containerPort: 5000
           env:
