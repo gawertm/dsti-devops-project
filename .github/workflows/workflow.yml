@@ -22,7 +22,7 @@ jobs:
         password: ${{ secrets.REGISTRY_PASSWORD }}
     
     # Container build and push to a Azure Container Registry (ACR)
-    - run:
+    - run: |
         docker build -t ${{ env.REGISTRY_NAME }}.azurecr.io/multi-client-k8s:${{ github.sha }} ./client/Dockerfile
         docker build -t ${{ env.REGISTRY_NAME }}.azurecr.io/multi-server-k8s:${{ github.sha }} ./server/Dockerfile
         docker build -t ${{ env.REGISTRY_NAME }}.azurecr.io/multi-worker-k8s:${{ github.sha }} ./worker/Dockerfile
