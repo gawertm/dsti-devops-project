@@ -54,13 +54,7 @@ jobs:
     # Deploy app to AKS
     - uses: azure/k8s-deploy@v1
       with:
-        manifests: |
-          multi-k8s/k8s/client-deployment.yaml
-          multi-k8s/k8s
-        images: |
-          ${{ env.REGISTRY_NAME }}.azurecr.io/multi-client-k8s:${{ github.sha }}
-          ${{ env.REGISTRY_NAME }}.azurecr.io/multi-server-k8s:${{ github.sha }}
-          ${{ env.REGISTRY_NAME }}.azurecr.io/multi-worker-k8s:${{ github.sha }} 
+        manifests: multi-k8s/k8s
         imagepullsecrets: |
           ${{ env.SECRET }}
         namespace: ${{ env.NAMESPACE }}
