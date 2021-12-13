@@ -48,6 +48,7 @@ jobs:
         container-registry-username: ${{ secrets.REGISTRY_USERNAME }}
         container-registry-password: ${{ secrets.REGISTRY_PASSWORD }}
         secret-name: ${{ env.SECRET }}
+        namespace: ${{ env.NAMESPACE }}
         arguments: --force true  
         
     # Deploy app to AKS
