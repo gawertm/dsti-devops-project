@@ -13,7 +13,7 @@ To Recall the fibonacci sequence, please see the following picture. A value is a
 This is a mockup of the final interface: 
 ![Mockup](image/mockup.JPG)
 
-## The Classic Core Application
+## The (local) Core Application
 ![Core Architecture](image/local_architecture.JPG)
 - each of the components are containerized
 - Once the user visits the application in the browser, it will be going to an Nginx Webserver
@@ -27,7 +27,7 @@ See the full backend flow here:
 
 ## Kubernetes Architecture
 ![Kubernetes Architecture](image/kubernetes_architecture.JPG)
-- using Kubernetes, I will not use the Nginx Routing instance, but instead rely on an Ingress Service that routes to the different ClusterIPs
+- Going to Porduction and Kubernetes, I will not use the Nginx Routing instance, but instead rely on an Ingress Service that routes to the different ClusterIPs
 - I am using 5 different deployments with 1 to 3 Replicas and a ClusterIP added to the deployments (except the worker deployment as it doesnt need to be accessed)
 - For Postgres I am additionally using a Postgres PVC
 - For the conenction from the Server deployment to redis as well as to Postgres is done by storing environment variables about the ports, hosts and users
@@ -38,3 +38,13 @@ See the full backend flow here:
 - in Travis I linked my Repo to the Travis Account
 - as the hosting platform, I am using the Google Kubernetes Engine (GKE) from the Google CLoud Platform (GCP)
 - for the deployment, I added deployment scripts to the Repo
+
+### Kubernetes
+- ARM Template used as per documentation https://docs.microsoft.com/en-us/azure/aks/kubernetes-walkthrough-rm-template
+- Due to Quota Limit, only 1 node cluster was deployed of size Standard_D4s_v3
+
+### GitHub
+- created a Service Principal for GitHub with the following command: 
+- Service Principal added to Github Secrets for Access to Azure
+- created an Azure Container registry to host images
+- Also added ACR Username and Password as Github Secrets
