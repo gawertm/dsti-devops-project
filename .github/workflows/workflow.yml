@@ -40,7 +40,7 @@ jobs:
     
     # Create namespace if doesn't exist
     - run: |
-        kubectl create namespace ${{ env.NAMESPACE }} --dry-run -o json | kubectl apply -f multi-k8s/k8s
+        kubectl create namespace ${{ env.NAMESPACE }} --dry-run=server -o json | kubectl apply -f multi-k8s/k8s
     
     # Create image pull secret for ACR
     - uses: azure/k8s-create-secret@v1
@@ -54,7 +54,10 @@ jobs:
     # Deploy app to AKS
     - uses: azure/k8s-deploy@v1
       with:
-        manifests: multi-k8s/k8s
-        imagepullsecrets: |
-          ${{ env.SECRET }}
+        manifests: |
+            multi-k8s/k8s/client-cluster-ip-service.yaml
+            multi-k8s/k8s/client-deployment.yaml
+            multi-k8s/k8s/database-persistent-volume-claim.yaml
+            multi-k8s/k8s/ingress-service.yaml
+        imagepullsecrets: ${{ env.SECRET }}
         namespace: ${{ env.NAMESPACE }}
