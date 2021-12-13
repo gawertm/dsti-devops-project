@@ -18,7 +18,7 @@ spec:
             claimName: database-persistent-volume-claim
       containers:
         - name: postgres
-          image: dstidevops.azurecr.io/postgres:latest
+          image: dstidevops.azurecr.io/postgres
           ports:
             - containerPort: 5432
           volumeMounts:
