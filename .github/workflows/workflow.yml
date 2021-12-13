@@ -5,7 +5,7 @@ env:
   REGISTRY_NAME: dstidevops
   CLUSTER_NAME: dsti-devops-cluster-manuel
   CLUSTER_RESOURCE_GROUP: DSTI-DevOps-Project
-  SECRET: acr-secret
+  SECRET: GitHubSP
   NAMESPACE: fibcalculator
   
 jobs:
