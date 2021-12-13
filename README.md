@@ -34,17 +34,17 @@ See the full backend flow here:
 - The Password for Postgres is stored in a Kubernetes Secret that was created by an imperative command (kubectl create secret generic)
 
 ## Prod Deployment
-- for the Prod Deployment I am using Travis CI as a CI Tool. Github Actions would have worked also, but I wanted to try a different tool
-- in Travis I linked my Repo to the Travis Account
-- as the hosting platform, I am using the Google Kubernetes Engine (GKE) from the Google CLoud Platform (GCP)
-- for the deployment, I added deployment scripts to the Repo
+- for the Prod Deployment I am using GitHub Actions as a CI Tool
+- as the hosting platform, I am using the Microsoft Azure Kubernetes Serveice (AKS)
+- for the deployment, I use a workflow yaml where all the build steps are defined
+- the containers will be hosted in a private Azure Container Registry (ACR) 
 
 ### Kubernetes
 - ARM Template used as per documentation https://docs.microsoft.com/en-us/azure/aks/kubernetes-walkthrough-rm-template
 - Due to Quota Limit, only 1 node cluster was deployed of size Standard_D4s_v3
 
 ### GitHub
-- created a Service Principal for GitHub with the following command: 
+- created a Service Principal for GitHub with the following command: az ad sp create-for-rbac --name "GitHubSP" --role contributor --scopes /subscriptions/0bef94e0-e086-44d4-9dc7-be9a1cf2c728/resourceGroups/DSTI-DevOps-Project --sdk-auth
 - Service Principal added to Github Secrets for Access to Azure
 - created an Azure Container registry to host images
-- Also added ACR Username and Password as Github Secrets
+- Also added ACR Username and Password of Service Principal as Github Secrets
