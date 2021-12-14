@@ -11,4 +11,3 @@ spec:
   commonName: dsti-devops.gawert.de
   dnsNames:
     - dsti-devops.gawert.de
-    - www.dsti-devops.gawert.de
