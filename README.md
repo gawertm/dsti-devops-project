@@ -3,7 +3,7 @@ Project Repository for S21 DevOps Assignment
 
 https://dsti-devops.gawert.de
 
--> please contact mailto:manuel.gawert@edu.dsti.institute to start the application (not runnung permanently causd by limited Azure Student Credits)#
+-> please mailto:manuel.gawert@edu.dsti.institute to start the application (not runnung permanently because of limited Azure Student Credits)
 
 ## Project Description
 
