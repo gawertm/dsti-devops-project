@@ -1,7 +1,7 @@
-# dsti-devops-project
+# DSTI-DevOps-Project
 Project Repository for S21 DevOps Assignment
 
-https://dsti-devops.gawert.de
+Application available at: https://dsti-devops.gawert.de
 
 -> please mailto:manuel.gawert@edu.dsti.institute to start the application (not runnung permanently because of limited Azure Student Credits)
 
@@ -48,6 +48,7 @@ See the full backend flow here:
 - Due to Quota Limit in the Azure Students subscription, only 1 node cluster could be deployed of size Standard_D4s_v3
 - Application is deployed with GitHub Actions Pipeline (see next chapter)
 - An Nginx Ingress Controller was deployed outside of the Pipeline as it uses a kubernetes native controller https://kubernetes.github.io/ingress-nginx/
+- A native Azure Application Gateway ingress controller is activated in front of the kubernetes native controller to allow traffic from outside
 - Infrastructure Monitoring is activated with Azure Monitor
 
 ### GitHub Action
@@ -58,7 +59,7 @@ See the full backend flow here:
 - Also, I added the Username and Password of ACR Service Principal as Github Secrets
 
 ## Evaluation Comments
-1. web application was obviously created
+1. web application was created
 2. CI/CD Pipeline with GitHub Actions in place as the main mean of provisioning
 3. IaC Approach was used during kubernetes environment creation (Azure Resource Manager Bicep Templates)
 4. Docker Images are build during deployment and pushed to Azure Container Registry
@@ -66,13 +67,13 @@ See the full backend flow here:
 6. Kubernetes is used for Orchestration of containers
 7. Service Mesh architecture used with Cluster IPs and a Nginx for Communication, however no ServiceMesh "Product" like Istio used
 8. Monitoring is implemented in a Azure native way using Azure Monitor. 
-- However, Grafana and Prometheus capabilities were demonstrated in another DSTI project, please visit https://clicklearn.gawert.de/d/rYdddlPWk/buoy-hardware-monitoring?orgId=1&refresh=5m&from=1639399041358&to=1639485441358
-- username: viewer
-- password: godsti2021
+	- However, Grafana and Prometheus capabilities were demonstrated in another DSTI project, please visit https://clicklearn.gawert.de/d/rYdddlPWk/buoy-hardware-monitoring?orgId=1&refresh=5m&from=1639399041358&to=1639485441358
+	- username: viewer
+	- password: godsti2021
 
 9. Documentation mainly done as part of this README but also within the code
-- nothing else needed for installation, as the applciation is available on the web: https://dsti-devops.gawert.de
-- However, please contact mailto:manuel,gawert@edu.dsti.institute to start the application before grading (cluster is not running permanently because of limited Azure Student Credits)
+	- nothing else needed for installation, as the applciation is available on the web: https://dsti-devops.gawert.de
+	- However, please contact mailto:manuel,gawert@edu.dsti.institute to start the application before grading (cluster is not running permanently because of limited Azure Student Credits)
 
 Bonus:
 - additionally to JavaScript, React was used for the Frontend
