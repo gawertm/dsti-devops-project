@@ -73,6 +73,8 @@ jobs:
             multi-k8s/k8s/server-cluster-ip-service.yaml
             multi-k8s/k8s/server-deployment.yaml
             multi-k8s/k8s/worker-deployment.yaml
+            multi-k8s/k8s/certificate.yaml
+            multi-k8s/k8s/issuer.yaml
         images: |
           ${{ env.REGISTRY_NAME }}.azurecr.io/multi-client-k8s:${{ github.sha }}
           ${{ env.REGISTRY_NAME }}.azurecr.io/multi-worker-k8s:${{ github.sha }}
