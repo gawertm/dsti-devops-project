@@ -53,13 +53,7 @@ jobs:
         arguments: --force true  
         
     # Create secret for postgres
-    - uses: azure/k8s-create-secret@v1
-      with:
-        namespace: ${{ env.NAMESPACE }}
-        secret-type: 'generic'
-        secret-name: ${{ env.POSTGRES_SECRET }}
-        data:  ${{ secrets.PGPASSWORD }}
-
+    - run: kubectl create secret generic ${{ env.POSTGRES_SECRET }} --from-literal PGPASSWORD=${{ secrets.PGPASSWORD }} --namespace=${{ env.NAMESPACE }}
         
     # Deploy app to AKS
     - uses: azure/k8s-deploy@v1.4
