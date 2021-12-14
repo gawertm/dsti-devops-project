@@ -78,6 +78,8 @@ See the full backend flow here:
 	- username: viewer
 	- password: godsti2021
 
+	![Monitoring](image/monitoring.png)
+
 9. Documentation mainly done as part of this README but also within the code
 	- nothing else needed for installation, as the applciation is available on the web: https://dsti-devops.gawert.de
 	- However, please contact mailto:manuel,gawert@edu.dsti.institute to start the application before grading (cluster is not running permanently because of limited Azure Student Credits)
