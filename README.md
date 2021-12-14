@@ -1,5 +1,7 @@
 # dsti-devops-project
-Project Ropository for S21 DevOps Assignment
+Project Repository for S21 DevOps Assignment
+https://dsti-devops.gawert.de
+-> please contact mailto:manuel.gawert@edu.dsti.institute to start the application (not runnung permanently causd by limited Azure Student Credits)#
 
 ## Project Description
 
@@ -42,6 +44,9 @@ See the full backend flow here:
 ### Kubernetes Setup
 - For the initial Kubernetes setup, a Microsoft ARM Template was used as per documentation https://docs.microsoft.com/en-us/azure/aks/kubernetes-walkthrough-rm-template
 - Due to Quota Limit in the Azure Students subscription, only 1 node cluster could be deployed of size Standard_D4s_v3
+- Application is deployed with GitHub Actions Pipeline (see next chapter)
+- An Nginx Ingress Controller was deployed outside of the Pipeline as it uses a kubernetes native controller https://kubernetes.github.io/ingress-nginx/
+- Infrastructure Monitoring is activated with Azure Monitor
 
 ### GitHub Action
 - I created a Service Principal for GitHub in azure with the following command: az ad sp create-for-rbac --name "GitHubSP" --role contributor --scopes /subscriptions/0bef94e0-e086-44d4-9dc7-be9a1cf2c728/resourceGroups/DSTI-DevOps-Project --sdk-auth
@@ -49,3 +54,27 @@ See the full backend flow here:
 - The Postgres Password is stored as a Github Secret and then via the Deployment created as a Secret in Kubernetes
 - The SP has pull and push permissions for the ACR
 - Also, I added the Username and Password of ACR Service Principal as Github Secrets
+
+## Evaluation Comments
+1. web application was obviously created
+2. CI/CD Pipeline with GitHub Actions in place as the main mean of provisioning
+3. IaC Approach was used during kubernetes environment creation (Azure Resource Manager Bicep Templates)
+4. Docker Images are build during deployment and pushed to Azure Container Registry
+5. Docker-Compose files are created to demonstrate ability, however they are not used in the pipeline and final Deployment
+6. Kubernetes is used for Orchestration of containers
+7. Service Mesh architecture used with Cluster IPs and a Nginx for Communication, however no ServiceMesh "Product" like Istio used
+8. Monitoring is implemented in a Azure native way using Azure Monitor. 
+- However, Grafana and Prometheus capabilities were demonstrated in another DSTI project, please visit https://clicklearn.gawert.de/d/rYdddlPWk/buoy-hardware-monitoring?orgId=1&refresh=5m&from=1639399041358&to=1639485441358
+- username: viewer
+- password: godsti2021
+
+9. Documentation mainly done as part of this README but also within the code
+- nothing else needed for installation, as the applciation is available on the web: https://dsti-devops.gawert.de
+- However, please contact mailto:manuel,gawert@edu.dsti.institute to start the application before grading
+
+Bonus:
+- additionally to JavaScript, React was used for the Frontend
+- different Hosting platform (Microsoft Azure) was used
+- Kubernetes Secrets used for Service Principal and Postgres Password
+- Additional Azure Kubernetes GitHub Action Modules used (https://github.com/Azure/k8s-create-secret,https://github.com/Azure/k8s-deploy, https://github.com/Azure/k8s-set-context)
+- Pipeline Resiliency for any tasks was added e.g. by doing --dry-run -o yaml and pipe this to kubectl apply STDIN. This prevents the pipeline to break if artifacts already exist
