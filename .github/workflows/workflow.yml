@@ -5,7 +5,8 @@ env:
   REGISTRY_NAME: dstidevops
   CLUSTER_NAME: dsti-devops-cluster-manuel
   CLUSTER_RESOURCE_GROUP: DSTI-DevOps-Project
-  SECRET: acr-secret
+  ACR_SECRET: acr-secret
+  POSTGRES_SECRET: pgpassword
   NAMESPACE: fibcalculator
   
 jobs:
@@ -47,9 +48,18 @@ jobs:
         container-registry-url: ${{ env.REGISTRY_NAME }}.azurecr.io
         container-registry-username: ${{ secrets.REGISTRY_USERNAME }}
         container-registry-password: ${{ secrets.REGISTRY_PASSWORD }}
-        secret-name: ${{ env.SECRET }}
+        secret-name: ${{ env.ACR_SECRET }}
         namespace: ${{ env.NAMESPACE }}
         arguments: --force true  
+        
+    # Create secret for postgres
+    - uses: azure/k8s-create-secret@v1
+      with:
+        namespace: ${{ env.NAMESPACE }}
+        secret-type: 'generic'
+        secret-name: ${{ env.POSTGRES_SECRET }}
+        data:  ${{ secrets.PGPASSWORD }}
+
         
     # Deploy app to AKS
     - uses: azure/k8s-deploy@v1.4

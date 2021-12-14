@@ -46,5 +46,6 @@ See the full backend flow here:
 ### GitHub Action
 - I created a Service Principal for GitHub in azure with the following command: az ad sp create-for-rbac --name "GitHubSP" --role contributor --scopes /subscriptions/0bef94e0-e086-44d4-9dc7-be9a1cf2c728/resourceGroups/DSTI-DevOps-Project --sdk-auth
 - The Service Principal was added to Github Secrets for Access to Azure
+- The Postgres Password is stored as a Github Secret and then via the Deployment created as a Secret in Kubernetes
 - The SP has pull and push permissions for the ACR
 - Also, I added the Username and Password of ACR Service Principal as Github Secrets
