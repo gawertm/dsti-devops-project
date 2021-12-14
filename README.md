@@ -1,6 +1,8 @@
 # dsti-devops-project
 Project Repository for S21 DevOps Assignment
+
 https://dsti-devops.gawert.de
+
 -> please contact mailto:manuel.gawert@edu.dsti.institute to start the application (not runnung permanently causd by limited Azure Student Credits)#
 
 ## Project Description
@@ -70,7 +72,7 @@ See the full backend flow here:
 
 9. Documentation mainly done as part of this README but also within the code
 - nothing else needed for installation, as the applciation is available on the web: https://dsti-devops.gawert.de
-- However, please contact mailto:manuel,gawert@edu.dsti.institute to start the application before grading
+- However, please contact mailto:manuel,gawert@edu.dsti.institute to start the application before grading (cluster is not running permanently because of limited Azure Student Credits)
 
 Bonus:
 - additionally to JavaScript, React was used for the Frontend
