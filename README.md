@@ -32,7 +32,7 @@ See the full backend flow here:
 ![Backend Architecture](image/backend_architecture.png)
 
 ## Kubernetes Architecture
-![Kubernetes Architecture](image/kubernetes_architecture.png)
+![Kubernetes Architecture](image/kubernetes_architecture1.png)
 - Going to Porduction and Kubernetes, I will not use the Nginx Routing instance, but instead rely on an Ingress Service that routes to the different ClusterIPs
 - I am using 5 different deployments with 1 to 3 Replicas and a ClusterIP added to the deployments (except the worker deployment as it doesnt need to be accessed)
 - For Postgres I am additionally using a Postgres PVC
