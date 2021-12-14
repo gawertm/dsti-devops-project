@@ -5,6 +5,7 @@ Application available at: https://dsti-devops.gawert.de
 
 -> please mailto:manuel.gawert@edu.dsti.institute to start the application (not runnung permanently because of limited Azure Student Credits)
 
+
 ## Project Description
 
 The Project provides a Fibonacci Calculator that uses a multi-container deployment hosted on Microsoft Azure Kubernetes Service.
@@ -19,6 +20,7 @@ This is a mockup of the final interface:
 
 ![Mockup](image/mockup.png)
 
+
 ## The (local) Core Application
 - each of the components are containerized
 - Once the user visits the application in the browser, it will be going to an Nginx Webserver
@@ -31,6 +33,7 @@ This is a mockup of the final interface:
 See the full backend flow here:
 
 ![Backend Architecture](image/backend_architecture.png)
+
 
 ## Kubernetes Architecture
 - Going to Porduction and Kubernetes, I will not use the Nginx Routing instance, but instead rely on an Ingress Service that routes to the different ClusterIPs
@@ -51,6 +54,8 @@ See the full backend flow here:
 - For Secure Communication over HTTPS, I installed Cert-Manager using Helm from the jetstack Helm Repository
 	https://cert-manager.io/docs/installation/kubernetes/#installing-with-helm
 - The Certificate issued by Let's Encrypt, will be stored as a secret in the Kubernetes Cluster
+
+
 ## Prod Deployment
 - For the Prod Deployment I am using GitHub Actions as a CI Tool
 - As the hosting platform, I am using the Microsoft Azure Kubernetes Serveice (AKS)
@@ -64,6 +69,7 @@ See the full backend flow here:
 - The Postgres Password is stored as a Github Secret and then via the Deployment created as a Secret in Kubernetes
 - The SP has pull and push permissions for the ACR
 - Also, I added the Username and Password of ACR Service Principal as Github Secrets
+
 
 ## Evaluation Comments
 1. web application was created
