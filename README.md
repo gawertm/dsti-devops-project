@@ -12,6 +12,7 @@ In the Fibonacci Calculator, the user will enter an Index, and the calculator wi
 Also the interface will display the users last entered values.
 
 To Recall the fibonacci sequence, please see the following picture. A value is always the addition of the two previous values.
+
 ![Fibonacci Sequence](image/fib_sequence.JPG)
 
 This is a mockup of the final interface: 
