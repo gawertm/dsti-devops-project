@@ -55,6 +55,9 @@ jobs:
     # Create secret for postgres
     - run: kubectl create secret generic ${{ env.POSTGRES_SECRET }} --from-literal PGPASSWORD=${{ secrets.PGPASSWORD }} --namespace=${{ env.NAMESPACE }} --dry-run=client -o yaml | kubectl apply -f -
         
+    # Create Nginx Ingress Controller
+    - run: kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.1.0/deploy/static/provider/cloud/deploy.yaml
+   
     # Deploy app to AKS
     - uses: azure/k8s-deploy@v1.4
       with:
