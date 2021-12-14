@@ -53,7 +53,7 @@ jobs:
         arguments: --force true  
         
     # Create secret for postgres
-    - run: kubectl create secret generic ${{ env.POSTGRES_SECRET }} --from-literal PGPASSWORD=${{ secrets.PGPASSWORD }} --namespace=${{ env.NAMESPACE }}
+    - run: kubectl create secret generic ${{ env.POSTGRES_SECRET }} --from-literal PGPASSWORD=${{ secrets.PGPASSWORD }} --namespace=${{ env.NAMESPACE }} --dry-run=client -o yaml | kubectl apply -f -
         
     # Deploy app to AKS
     - uses: azure/k8s-deploy@v1.4
