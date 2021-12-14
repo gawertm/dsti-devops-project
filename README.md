@@ -3,7 +3,7 @@ Project Ropository for S21 DevOps Assignment
 
 ## Project Description
 
-The Project provides a Fibonacci Calculator that uses a multi-container deployment hosted on Google Cloud Kubernetes Engine.
+The Project provides a Fibonacci Calculator that uses a multi-container deployment hosted on Microsoft Azure Kubernetes Service.
 In the Fibonacci Calculator, the user will enter an Index, and the calculator will provide the correct value. 
 Also the interface will display the users last entered values.
 
@@ -21,7 +21,7 @@ This is a mockup of the final interface:
 - In fact, two instances of Nginx should be used: one only responsible for the routing and one that is tight to the React App and will serve its files on Port 3000
 - The "Values I have seen" will be stored in a postgres database as they are more permanent
 - The Calculated Values will be stored in a Redis Database (Key/Value Pairs)
-- The worker is a node.js process which looks for new values in Redis, claculates the value and puts it back to Redis
+- The worker is a node.js process which looks for new values in Redis, calculates the value and puts it back to Redis
 See the full backend flow here:
 ![Backend Architecture](image/backend_architecture.JPG)
 
@@ -31,17 +31,17 @@ See the full backend flow here:
 - I am using 5 different deployments with 1 to 3 Replicas and a ClusterIP added to the deployments (except the worker deployment as it doesnt need to be accessed)
 - For Postgres I am additionally using a Postgres PVC
 - For the conenction from the Server deployment to redis as well as to Postgres is done by storing environment variables about the ports, hosts and users
-- The Password for Postgres is stored in a Kubernetes Secret that was created by an imperative command (kubectl create secret generic)
+- The Password for Postgres is stored in a Kubernetes Secret that was created by the automated deployment
 
 ## Prod Deployment
-- for the Prod Deployment I am using GitHub Actions as a CI Tool
-- as the hosting platform, I am using the Microsoft Azure Kubernetes Serveice (AKS)
-- for the deployment, I use a workflow.yml where all the build steps are defined
-- the containers will be hosted in a private Azure Container Registry (ACR) 
+- For the Prod Deployment I am using GitHub Actions as a CI Tool
+- As the hosting platform, I am using the Microsoft Azure Kubernetes Serveice (AKS)
+- The main deployment pipeline is described in the workflow.yaml which essentially provides all the different build and deployment steps needed
+- The containers will be hosted in a private Azure Container Registry (ACR), access is granted via a Service Principal
 
 ### Kubernetes Setup
-- ARM Template used as per documentation https://docs.microsoft.com/en-us/azure/aks/kubernetes-walkthrough-rm-template
-- Due to Quota Limit, only 1 node cluster was deployed of size Standard_D4s_v3
+- For the initial Kubernetes setup, a Microsoft ARM Template was used as per documentation https://docs.microsoft.com/en-us/azure/aks/kubernetes-walkthrough-rm-template
+- Due to Quota Limit in the Azure Students subscription, only 1 node cluster could be deployed of size Standard_D4s_v3
 
 ### GitHub Action
 - I created a Service Principal for GitHub in azure with the following command: az ad sp create-for-rbac --name "GitHubSP" --role contributor --scopes /subscriptions/0bef94e0-e086-44d4-9dc7-be9a1cf2c728/resourceGroups/DSTI-DevOps-Project --sdk-auth
