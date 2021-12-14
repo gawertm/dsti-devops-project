@@ -1,0 +1,14 @@
+apiVersion: cert-manager.io/v1
+ 
+kind: Certificate
+metadata:
+  name: dsti-devops-gawert-tls
+spec:
+  secretName: dsti-devops-gawert-de
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  commonName: dsti-devops.gawert.de
+  dnsNames:
+    - dsti-devops.gawert.de
+    - www.dsti-devops.gawert.de

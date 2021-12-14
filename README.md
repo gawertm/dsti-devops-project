@@ -48,7 +48,9 @@ See the full backend flow here:
 - A Nginx Ingress Controller was deployed as part of the Pipeline https://kubernetes.github.io/ingress-nginx/, which also adds a default backend pod
 - A native Azure Application Gateway ingress controller is activated in front of the kubernetes native controller to allow traffic from outside
 - Infrastructure Monitoring is activated with Azure Monitor
-
+- For Secure Communication over HTTPS, I installed Cert-Manager using Helm from the jetstack Helm Repository
+	https://cert-manager.io/docs/installation/kubernetes/#installing-with-helm
+- The Certificate issued by Let's Encrypt, will be stored as a secret in the Kubernetes Cluster
 ## Prod Deployment
 - For the Prod Deployment I am using GitHub Actions as a CI Tool
 - As the hosting platform, I am using the Microsoft Azure Kubernetes Serveice (AKS)
@@ -86,3 +88,4 @@ See the full backend flow here:
 - Kubernetes Secrets used for Service Principal and Postgres Password
 - Additional Azure Kubernetes GitHub Action Modules used (https://github.com/Azure/k8s-create-secret,https://github.com/Azure/k8s-deploy, https://github.com/Azure/k8s-set-context)
 - Pipeline Resiliency for any tasks was added e.g. by doing --dry-run -o yaml and pipe this to kubectl apply STDIN. This prevents the pipeline to break if artifacts already exist
+- Installed cert-manager using Helm and made the application available udner my own domain
