@@ -15,22 +15,22 @@ To Recall the fibonacci sequence, please see the following picture. A value is a
 ![Fibonacci Sequence](image/fib_sequence.JPG)
 
 This is a mockup of the final interface: 
-![Mockup](image/mockup.JPG)
+![Mockup](image/mockup.png)
 
 ## The (local) Core Application
-![Core Architecture](image/local_architecture.JPG)
 - each of the components are containerized
 - Once the user visits the application in the browser, it will be going to an Nginx Webserver
 - Nginx will route between a react application with all the front-end assets and an Express Server that functions as an API e.g. when a user submits a value in the browser
+![Backend Nginx Architecture](image/nginx.png)
 - In fact, two instances of Nginx should be used: one only responsible for the routing and one that is tight to the React App and will serve its files on Port 3000
 - The "Values I have seen" will be stored in a postgres database as they are more permanent
 - The Calculated Values will be stored in a Redis Database (Key/Value Pairs)
 - The worker is a node.js process which looks for new values in Redis, calculates the value and puts it back to Redis
 See the full backend flow here:
-![Backend Architecture](image/backend_architecture.JPG)
+![Backend Architecture](image/backend_architecture.png)
 
 ## Kubernetes Architecture
-![Kubernetes Architecture](image/kubernetes_architecture.JPG)
+![Kubernetes Architecture](image/kubernetes_architecture.png)
 - Going to Porduction and Kubernetes, I will not use the Nginx Routing instance, but instead rely on an Ingress Service that routes to the different ClusterIPs
 - I am using 5 different deployments with 1 to 3 Replicas and a ClusterIP added to the deployments (except the worker deployment as it doesnt need to be accessed)
 - For Postgres I am additionally using a Postgres PVC
@@ -47,7 +47,7 @@ See the full backend flow here:
 - For the initial Kubernetes setup, a Microsoft ARM Template was used as per documentation https://docs.microsoft.com/en-us/azure/aks/kubernetes-walkthrough-rm-template
 - Due to Quota Limit in the Azure Students subscription, only 1 node cluster could be deployed of size Standard_D4s_v3
 - Application is deployed with GitHub Actions Pipeline (see next chapter)
-- An Nginx Ingress Controller was deployed outside of the Pipeline as it uses a kubernetes native controller https://kubernetes.github.io/ingress-nginx/
+- A Nginx Ingress Controller was deployed as part of the Pipeline https://kubernetes.github.io/ingress-nginx/
 - A native Azure Application Gateway ingress controller is activated in front of the kubernetes native controller to allow traffic from outside
 - Infrastructure Monitoring is activated with Azure Monitor
 
