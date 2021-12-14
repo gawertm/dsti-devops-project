@@ -32,18 +32,13 @@ See the full backend flow here:
 ![Backend Architecture](image/backend_architecture.png)
 
 ## Kubernetes Architecture
-![Kubernetes Architecture](image/kubernetes_architecture1.png)
 - Going to Porduction and Kubernetes, I will not use the Nginx Routing instance, but instead rely on an Ingress Service that routes to the different ClusterIPs
 - I am using 5 different deployments with 1 to 3 Replicas and a ClusterIP added to the deployments (except the worker deployment as it doesnt need to be accessed)
 - For Postgres I am additionally using a Postgres PVC
 - For the conenction from the Server deployment to redis as well as to Postgres is done by storing environment variables about the ports, hosts and users
 - The Password for Postgres is stored in a Kubernetes Secret that was created by the automated deployment
 
-## Prod Deployment
-- For the Prod Deployment I am using GitHub Actions as a CI Tool
-- As the hosting platform, I am using the Microsoft Azure Kubernetes Serveice (AKS)
-- The main deployment pipeline is described in the workflow.yaml which essentially provides all the different build and deployment steps needed
-- The containers will be hosted in a private Azure Container Registry (ACR), access is granted via a Service Principal
+![Kubernetes Architecture](image/kubernetes_architecture1.png)
 
 ### Kubernetes Setup
 - For the initial Kubernetes setup, a Microsoft ARM Template was used as per documentation https://docs.microsoft.com/en-us/azure/aks/kubernetes-walkthrough-rm-template
@@ -52,6 +47,12 @@ See the full backend flow here:
 - A Nginx Ingress Controller was deployed as part of the Pipeline https://kubernetes.github.io/ingress-nginx/
 - A native Azure Application Gateway ingress controller is activated in front of the kubernetes native controller to allow traffic from outside
 - Infrastructure Monitoring is activated with Azure Monitor
+
+## Prod Deployment
+- For the Prod Deployment I am using GitHub Actions as a CI Tool
+- As the hosting platform, I am using the Microsoft Azure Kubernetes Serveice (AKS)
+- The main deployment pipeline is described in the workflow.yaml which essentially provides all the different build and deployment steps needed
+- The containers will be hosted in a private Azure Container Registry (ACR), access is granted via a Service Principal
 
 ### GitHub Action
 - I created a Service Principal for GitHub in azure with the following command: 
