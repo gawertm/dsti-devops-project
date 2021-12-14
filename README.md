@@ -15,6 +15,7 @@ To Recall the fibonacci sequence, please see the following picture. A value is a
 ![Fibonacci Sequence](image/fib_sequence.JPG)
 
 This is a mockup of the final interface: 
+
 ![Mockup](image/mockup.png)
 
 ## The (local) Core Application
@@ -27,6 +28,7 @@ This is a mockup of the final interface:
 - The Calculated Values will be stored in a Redis Database (Key/Value Pairs)
 - The worker is a node.js process which looks for new values in Redis, calculates the value and puts it back to Redis
 See the full backend flow here:
+
 ![Backend Architecture](image/backend_architecture.png)
 
 ## Kubernetes Architecture
@@ -52,7 +54,8 @@ See the full backend flow here:
 - Infrastructure Monitoring is activated with Azure Monitor
 
 ### GitHub Action
-- I created a Service Principal for GitHub in azure with the following command: az ad sp create-for-rbac --name "GitHubSP" --role contributor --scopes /subscriptions/0bef94e0-e086-44d4-9dc7-be9a1cf2c728/resourceGroups/DSTI-DevOps-Project --sdk-auth
+- I created a Service Principal for GitHub in azure with the following command: 
+	az ad sp create-for-rbac --name "GitHubSP" --role contributor --scopes /subscriptions/0bef94e0-e086-44d4-9dc7-be9a1cf2c728/resourceGroups/DSTI-DevOps-Project --sdk-auth
 - The Service Principal was added to Github Secrets for Access to Azure
 - The Postgres Password is stored as a Github Secret and then via the Deployment created as a Secret in Kubernetes
 - The SP has pull and push permissions for the ACR
