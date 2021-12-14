@@ -41,10 +41,10 @@ See the full backend flow here:
 ![Kubernetes Architecture](image/kubernetes_architecture1.png)
 
 ### Kubernetes Setup
-- For the initial Kubernetes setup, a Microsoft ARM Template was used as per documentation https://docs.microsoft.com/en-us/azure/aks/kubernetes-walkthrough-rm-template
+- For the initial Kubernetes setup, a Microsoft ARM Template was used https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.kubernetes/aks
 - Due to Quota Limit in the Azure Students subscription, only 1 node cluster could be deployed of size Standard_D4s_v3
 - Application is deployed with GitHub Actions Pipeline (see next chapter)
-- A Nginx Ingress Controller was deployed as part of the Pipeline https://kubernetes.github.io/ingress-nginx/
+- A Nginx Ingress Controller was deployed as part of the Pipeline https://kubernetes.github.io/ingress-nginx/, which also adds a default backend pod
 - A native Azure Application Gateway ingress controller is activated in front of the kubernetes native controller to allow traffic from outside
 - Infrastructure Monitoring is activated with Azure Monitor
 
