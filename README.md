@@ -49,7 +49,6 @@ See the full backend flow here:
 - Due to Quota Limit in the Azure Students subscription, only 1 node cluster could be deployed of size Standard_D4s_v3
 - Application is deployed with GitHub Actions Pipeline (see next chapter)
 - A Nginx Ingress Controller was deployed as part of the Pipeline https://kubernetes.github.io/ingress-nginx/, which also adds a default backend pod
-- A native Azure Application Gateway ingress controller is activated in front of the kubernetes native controller to allow traffic from outside
 - Infrastructure Monitoring is activated with Azure Monitor
 - For Secure Communication over HTTPS, I installed Cert-Manager using Helm from the jetstack Helm Repository
 	https://cert-manager.io/docs/installation/kubernetes/#installing-with-helm
