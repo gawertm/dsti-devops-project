@@ -2,6 +2,7 @@
 Project Repository for S21 DevOps Assignment
 
 Application available at: https://dsti-devops.gawert.de
+
 Demo: https://drive.google.com/file/d/1Y2Qcv_NehTqQa65SHtrvmQ5cDAjafP0x/view?usp=sharing
 
 -> please mailto:manuel.gawert@edu.dsti.institute to start the application (not runnung permanently because of limited Azure Student Credits)
