@@ -44,6 +44,7 @@ See the full backend flow here:
 - The Password for Postgres is stored in a Kubernetes Secret that was created by the automated deployment
 
 ![Kubernetes Architecture](image/kubernetes_architecture1.png)
+
 (Remark: Eventaully, the Azure Native Loadbalancer is not used as it was very expensive. Traffic is routed directly to the Ingress Controller)
 
 ### Kubernetes Setup
