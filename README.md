@@ -1,7 +1,7 @@
 # DSTI-DevOps-Project
 Project Repository for S21 DevOps Assignment
 
-Application available at: https://dsti-devops.gawert.de
+Application available at: https://dsti-devops.gawert.de (How To: enter your value and refresh the page)
 
 Demo: https://drive.google.com/file/d/1Y2Qcv_NehTqQa65SHtrvmQ5cDAjafP0x/view?usp=sharing
 
